@@ -45,6 +45,18 @@ string reverse_string(string input)
     return result;
 }
 
+bool is_palindrome(string input)
+{
+    string reversed_input;
+
+    for (int i = input.size() - 1; i >= 0; i--)
+    {
+        reversed_input.push_back(input[i]);
+    }
+
+    return reversed_input == input;
+}
+
 int main() {
     string s1 = "Oleksii";
     replace_last_letter_with_first(s1);
@@ -61,4 +73,9 @@ int main() {
     string s2_reversed = reverse_string(s2);
 
     cout << "s2 after reversing = " << s2_reversed << endl;
+
+    string s3 = "level";
+    string is_palindrome_text = is_palindrome(s3) ? "true" : "false";
+
+    cout << "s3 is palindrome? " << is_palindrome_text << endl;
 }
