@@ -33,7 +33,7 @@ int count_vowels(const string& input)
     return counter;
 }
 
-string reverse_string(string input)
+string reverse(string input)
 {
     string result;
 
@@ -70,7 +70,7 @@ int main() {
     string s2 = "Lego";
 
     cout << "s2 before reversing = " << s2 << endl;
-    string s2_reversed = reverse_string(s2);
+    string s2_reversed = reverse(s2);
 
     cout << "s2 after reversing = " << s2_reversed << endl;
 
