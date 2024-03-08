@@ -5,6 +5,7 @@ using namespace std;
 
 // IT REPRESENTS [a, e, i, o, u]
 const vector<int> ASCII_VOWELS = {97, 101, 105, 111, 117};
+const int ASCII_SPACE = 32;
 
 void replace_last_letter_with_first(string &input)
 {
@@ -13,6 +14,18 @@ void replace_last_letter_with_first(string &input)
 
     input[input.length() - 1] = first_letter;
     input[0] = last_letter;
+}
+
+int count_number_of_symbols(const string& input, char symbol)
+{
+    int counter = 0;
+    for (char ch : input)
+    {
+        if (ch == symbol)
+            counter++;
+    }
+
+    return counter;
 }
 
 int count_vowels(const string& input)
@@ -78,4 +91,10 @@ int main() {
     string is_palindrome_text = is_palindrome(s3) ? "true" : "false";
 
     cout << "s3 is palindrome? " << is_palindrome_text << endl;
+
+    string s4 = "hello";
+
+    int number_of_symbols_s4 = count_number_of_symbols(s4, 'l');
+
+    cout << "in word: " << s4 << " number of symbols is: " << number_of_symbols_s4 << endl;
 }
