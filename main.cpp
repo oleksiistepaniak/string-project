@@ -70,6 +70,30 @@ bool is_palindrome(string input)
     return reversed_input == input;
 }
 
+vector<string> divide_by_spaces(const string& input)
+{
+    vector<string> result;
+    string word;
+    for (int i = 0; i < input.size(); i++)
+    {
+        if (i + 1 == input.size()) {
+            word.push_back(input[i]);
+            result.push_back(word);
+            break;
+        }
+        int ascii_char = (int) input[i];
+        if (ascii_char == ASCII_SPACE)
+        {
+            result.push_back(word);
+            word = "";
+            continue;
+        }
+        word.push_back(input[i]);
+    }
+
+    return result;
+}
+
 int main() {
     string s1 = "Oleksii";
     replace_last_letter_with_first(s1);
@@ -97,4 +121,12 @@ int main() {
     int number_of_symbols_s4 = count_number_of_symbols(s4, 'l');
 
     cout << "in word: " << s4 << " number of symbols is: " << number_of_symbols_s4 << endl;
+
+    string s5 = "hello world it's my name";
+    vector<string> s5_vector = divide_by_spaces(s5);
+
+    for (const string& str : s5_vector)
+    {
+        cout << "Element is: " << str << endl;
+    }
 }
